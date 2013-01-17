@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    	<!-- VFW Project 1 -->
+    	<!-- VFW Project 2 -->
     	<!-- Joshua Wisecup -->
     	<!-- Term 0113 -->
 <html lang="en">
@@ -15,7 +15,8 @@
          <!-- Le styles -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
+        <link href="css/app.css" rel="stylesheet">
+        
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
  		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -31,11 +32,26 @@
 	</head>
 
     <body>
+    
+    <div class="homepage">
+    
+	<div class="outerContainer headerRow">
 		<div class="container">
-			<div class="row">
-      			<header><h1>Pebbly</h1></header>
+          <div class="row">
+            <div class="span12">
+              <header>
+                 <h1>
+                    <a class="pebblyLogo" title="Link to Pebbly" href="index.html">
+                        Pebbly
+                    </a>
+                </h1>
+             </header>
             </div>
-        </div>
+          </div>
+		</div>
+	</div>
+    
+	<div class="outerContainer bodyRow">
 		<div class="container">
             <div class="row">
               <div class="span12">
@@ -129,8 +145,11 @@
               </div>
             </div>
       </div>
+	</div>
+    
+	<div class="outerContainer footerRow">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="footer">
             	<nav>
                     <ul class="nav nav-pills">
                       <li>
@@ -142,6 +161,7 @@
 				</nav>          
 			</div>
         </div>
+	</div>
         
         
         <!-- Le javascript
