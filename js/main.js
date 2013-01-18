@@ -48,9 +48,13 @@ window.addEventListener("DOMContentLoaded", function(){
 		item.inputZip		= ["Zip:", $("inputZip").value];
 		item.inputRating	= ["Rating:", $("inputRating").value];
 		item.inputDate		= ["Date:", $("inputDate").value];
-		item.inputHidden	= ["Hidden:", $("inputHidden").value];
+		//item.inputHidden	= ["Hidden:", $("inputHidden").value];
 		item.inputArea		= ["Area:", $("inputArea").value];
-		item.inputCheck		= ["Add to Favorites:", $("inputCheck").value];
+		//item.inputCheck		= ["Add to Favorites:", favoriteValue];
+		
+		//Save data into local storage. Use stringify to convert object into a string
+		localStorage.setItem(id, JSON.stringify(item));
+		alert("Pebble Saved!");
 	}
 	
 	//Variable defaults
