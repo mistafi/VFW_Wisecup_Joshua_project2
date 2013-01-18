@@ -1,7 +1,7 @@
 // JavaScript Document
-    	<!-- VFW Project 2 -->
-    	<!-- Joshua Wisecup -->
-    	<!-- Term 0113 -->
+// VFW Project 2 
+// Joshua Wisecup
+// Term 0113 
 		
 
 
@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Create select field element and populate with options
 	function makeCats() {
 		var formTag = document.getElementsByTagName("form"), //formTag is an array of all the form tags
-			selectDiv = $("dropDownDiv"),
+			selectDiv = $("selectDiv"),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("id", "dropdownSelect");
 		for(var i=0, j=pebbleGroups.length; i<j; i++){
@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
 		}
-		selectDiv.appendChild(makeSelect);
+		document.getElementById("selectDiv").appendChild(makeSelect);
 	}
 	
 	//Variable defaults
