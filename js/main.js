@@ -7,7 +7,6 @@
 
 //Wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
-	//alert(localStorage.value(0));
 
 
 	//Get ElementById Function
@@ -66,6 +65,32 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Pebble Saved!");
 	}
 	
+	function getData(){
+		//write data from local storage to the browser
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		for (var i=0, len=localStorage.length; i<len;i++){
+			var makeli = document.createElement("li");
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			//Convert the string from local storage value back to an object using JSON.parse()
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement("ul");
+			makeli.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubli = document.createElement("li");
+				makeSubList.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;
+			}
+		}
+	}
+	
+	
 	//Variable defaults
 	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"],
 		favoriteValue = "No"
@@ -74,10 +99,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	
 	//Set Link and Submit Click Events
-/*	var displayLink = $("displayLink");
-	displayLink.addEventListener("click", getData);
+	var displayLink = $("displayLink");
+	document.getElementById("displayLink").addEventListener("click", getData);
 	var clearLink = $("clear");
-	clearLink.addEventListener("click", clearLocal);*/
+	document.getElementById("clear").addEventListener("click", clearLocal);
 	var save = $("submit");
 	document.getElementById("submit").addEventListener("click", storeData);
 
