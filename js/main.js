@@ -23,3 +23,17 @@ for(i=0, j=colors.length; i<j; i++) {
 	}
 	myUlTag.appendChild(liTag);
 }
+
+
+//Wait until the DOM is ready
+
+
+//Get ElementById Function
+
+
+//Variable defaults
+
+
+//Set Link and Submit Click Events
+
+
