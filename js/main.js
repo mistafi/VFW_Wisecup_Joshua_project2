@@ -20,12 +20,23 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Create select field element and populate with options
 	function makeCats() {
-		var formTag = document.getElementsByTagName("form"); //formTag is an array
+		var formTag = document.getElementsByTagName("form"), //formTag is an array of all the form tags
+			selectDiv = $("dropDownDiv"),
+			makeSelect = document.createElement("select");
+			makeSelect.setAttribute("id", "dropdownSelect");
+		for(var i=0, j=pebbleGroups.length; i<j; i++){
+			var makeOption = document.createElement("option");
+			var optText = pebbleGroups[i];
+			makeOption.setAttribute("value", optText);
+			makeOption.innerHTML = optText;
+			makeSelect.appendChild(makeOption);
+		}
+		selectDiv.appendChild(makeSelect);
 	}
 	
 	//Variable defaults
 	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"];
-	
+	makeCats();
 	
 	
 	//Set Link and Submit Click Events
