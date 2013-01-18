@@ -87,6 +87,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function getData(){
 		toggleControls("on");
+		if(localStorage.length === 0) {
+			alert("There is no data in Local Storage.");
+		}
 		//write data from local storage to the browser
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
@@ -113,6 +116,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function clearLocal(){
+		if(localStorage.length === 0){
+			alert("There is no data to clear.")
+		}else{
+			localStorage.clear();
+			alert("All pebbles are deleted!");
+			window.location.reload();
+			return false;
+		}
+	}
 	
 	//Variable defaults
 	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"],
