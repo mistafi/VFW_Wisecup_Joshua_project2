@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	
 	//Create select field element and populate with options
-	function makeCats() {
+	function makeSelectField() {
 		var formTag = document.getElementsByTagName("form"), //formTag is an array of all the form tags
 			selectDiv = $("selectDiv"),
 			makeSelect = document.createElement("select");
@@ -34,18 +34,37 @@ window.addEventListener("DOMContentLoaded", function(){
 		document.getElementById("selectDiv").appendChild(makeSelect);
 	}
 	
+	function storeData () {
+		var id 				= Math.floor(Math.random()*100000001);
+		//Gather up our form field values and store in an object
+		//Object properties contain an array with form label and input values
+		var item			= {};
+		item.group			= ["Group:", $("dropdownSelect").value];
+		item.inputName		= ["Name:", $("inputName").value];
+		item.inputAddress	= ["Address:", $("inputAddress").value];
+		item.inputAddress2	= ["Address2:", $("inputAddress2").value];
+		item.inputCity		= ["City:", $("inputCity").value];
+		item.inputState		= ["State:", $("inputState").value];
+		item.inputZip		= ["Zip:", $("inputZip").value];
+		item.inputRating	= ["Rating:", $("inputRating").value];
+		item.inputDate		= ["Date:", $("inputDate").value];
+		item.inputHidden	= ["Hidden:", $("inputHidden").value];
+		item.inputArea		= ["Area:", $("inputArea").value];
+		item.inputCheck		= ["Add to Favorites:", $("inputCheck").value];
+	}
+	
 	//Variable defaults
 	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"];
-	makeCats();
+	makeSelectField();
 	
 	
 	//Set Link and Submit Click Events
-	var displayLink = $("displayLink");
+/*	var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
-	clearLink.addEventListener("click", clearLocal);
+	clearLink.addEventListener("click", clearLocal);*/
 	var save = $("submit");
-	save.addEventListener("click", storeData);
+	document.getElementById("submit").addEventListener("click", storeData);
 
 
 
