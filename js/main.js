@@ -44,17 +44,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$("addPebble").style.display = "none";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "none";
-				$("addNew").style.display = "inline";
+				document.getElementById("addPebble").style.display = "none";
+				document.getElementById("displayLink").style.display = "none";
+				document.getElementById("addNew").style.display = "block";	
 				break;
 			case "off":
-				$("addPebble").style.display = "block";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "inline";
-				$("addNew").style.display = "none";	
-				$("items").style.display = "none";													
+				document.getElementById("addPebble").style.display = "block";
+				document.getElementById("addNew").style.display = "none";	
+				document.getElementById("items").style.display = "none";													
 				break;
 			default:
 				return false;
