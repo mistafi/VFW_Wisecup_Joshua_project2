@@ -56,7 +56,7 @@
             <div class="row">
               <div class="span12">
                  <p>You're on your way! Adding a Pebble is adding a location to your list. Add your first Pebble below.</p>
-                 <form class="form-horizontal">
+                 <form class="form-horizontal" id="addPebble">
                    <fieldset>
     				<legend>Add a Pebble</legend>
                   <div class="control-group">
@@ -137,7 +137,7 @@
 				</div>
                   <div class="control-group">
                     <div class="controls">
-                      <input type="submit" class="btn btn-success" value="Add Location">
+                      <input type="submit" id="submit" class="btn btn-success" value="Add Location">
                     </div>
                   </div>
                   </fieldset>
@@ -155,8 +155,8 @@
                       <li>
                         <a href="index.html">Home</a>
                       </li>
-                      <li><a href="#">Clear Stored Data</a></li>
-                      <li><a href="#">Display Data</a></li>
+                      <li><a id="clear" href="#">Clear Stored Data</a></li>
+                      <li><a id="displayLink" href="#">Display Data</a></li>
                     </ul>  
 				</nav>          
 			</div>
@@ -168,6 +168,6 @@
             ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
 		<script src="js/bootstrap.js"></script>
-  
+		<script src="js/main.js"></script>
 	</body>
 </html>
