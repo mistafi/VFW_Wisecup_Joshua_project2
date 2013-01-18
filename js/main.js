@@ -7,8 +7,7 @@
 
 //Wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
-
-
+	//alert(localStorage.value(0));
 
 
 	//Get ElementById Function
@@ -34,10 +33,20 @@ window.addEventListener("DOMContentLoaded", function(){
 		document.getElementById("selectDiv").appendChild(makeSelect);
 	}
 	
+	//Find value of a selected radio button
+	function getCheckBoxValue(){
+		if($("fav").checked){
+			favoriteValue = $("fav").value;
+		}else{
+			favoriteValue = "No"
+		}
+	}
+	
 	function storeData () {
 		var id 				= Math.floor(Math.random()*100000001);
 		//Gather up our form field values and store in an object
 		//Object properties contain an array with form label and input values
+		getCheckBoxValue();
 		var item			= {};
 		item.group			= ["Group:", $("dropdownSelect").value];
 		item.inputName		= ["Name:", $("inputName").value];
@@ -50,7 +59,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		item.inputDate		= ["Date:", $("inputDate").value];
 		//item.inputHidden	= ["Hidden:", $("inputHidden").value];
 		item.inputArea		= ["Area:", $("inputArea").value];
-		//item.inputCheck		= ["Add to Favorites:", favoriteValue];
+		item.inputCheck		= ["Add to Favorites:", favoriteValue];
 		
 		//Save data into local storage. Use stringify to convert object into a string
 		localStorage.setItem(id, JSON.stringify(item));
@@ -58,7 +67,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Variable defaults
-	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"];
+	var pebbleGroups = ["--Choose a Type--", "Restaurant", "Gas Station", "Retail Store"],
+		favoriteValue = "No"
+	;
 	makeSelectField();
 	
 	
