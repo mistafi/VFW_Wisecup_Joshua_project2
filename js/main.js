@@ -41,6 +41,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$("addPebble").style.display = "none";
+				$("clear").style.display = "inline";
+				$("displayLink").style.display = "none";
+				$("addNew").style.display = "inline";
+				break;
+			case "off":
+				$("addPebble").style.display = "block";
+				$("clear").style.display = "inline";
+				$("displayLink").style.display = "inline";
+				$("addNew").style.display = "none";	
+				$("items").style.display = "none";													
+				break;
+			default:
+				return false;
+		}
+	}
+	
 	function storeData () {
 		var id 				= Math.floor(Math.random()*100000001);
 		//Gather up our form field values and store in an object
@@ -66,12 +86,15 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
+		toggleControls("on");
 		//write data from local storage to the browser
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$("items").style.display = "block";													
+
 		for (var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
 			makeList.appendChild(makeli);
