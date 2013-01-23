@@ -92,7 +92,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		//write data from local storage to the browser
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
+		var makeList = document.createElement("ol");
+		makeList.setAttribute("class", "unstyled");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		document.getElementById("items").style.display = "block";													
@@ -105,6 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			//Convert the string from local storage value back to an object using JSON.parse()
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
+			makeSubList.setAttribute("class", "unstyled well");
 			makeli.appendChild(makeSubList);
 			for(var n in obj){
 				var makeSubli = document.createElement("li");
@@ -112,6 +114,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
 			}
+			document.getElementById("mainContainer").appendChild(makeDiv);
 		}
 	}
 	
