@@ -7,12 +7,12 @@
 
 //Wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
-
+//alert("Hello, World!");
 
 	//Get ElementById Function
 	function $(x){
-		var theElement = document.getElementById("x");
-		return theElement;
+		var elements = document.getElementById("x");
+	return elements;
 	}
 	
 	
@@ -34,8 +34,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Find value of a selected radio button
 	function getCheckBoxValue(){
-		if($("fav").checked){
-			favoriteValue = $("fav").value;
+		if(document.getElementById("fav").checked){
+			favoriteValue = document.getElementById("fav").value;
 		}else{
 			favoriteValue = "No"
 		}
@@ -44,13 +44,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				document.getElementById("addPebble").style.display = "none";
+				document.getElementById("pebbleForm").style.display = "none";
 				document.getElementById("displayLink").style.display = "none";
-				document.getElementById("addNew").style.display = "block";	
+				document.getElementById("addPebble").style.display = "block";	
 				break;
 			case "off":
-				document.getElementById("addPebble").style.display = "block";
-				document.getElementById("addNew").style.display = "none";	
+				document.getElementById("pebbleForm").style.display = "block";
+				document.getElementById("addPebble").style.display = "none";	
 				document.getElementById("items").style.display = "none";													
 				break;
 			default:
@@ -64,21 +64,23 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Object properties contain an array with form label and input values
 		getCheckBoxValue();
 		var item			= {};
-		item.group			= ["Group:", $("dropdownSelect").value];
-		item.inputName		= ["Name:", $("inputName").value];
-		item.inputAddress	= ["Address:", $("inputAddress").value];
-		item.inputAddress2	= ["Address2:", $("inputAddress2").value];
-		item.inputCity		= ["City:", $("inputCity").value];
-		item.inputState		= ["State:", $("inputState").value];
-		item.inputZip		= ["Zip:", $("inputZip").value];
-		item.inputRating	= ["Rating:", $("inputRating").value];
-		item.inputDate		= ["Date:", $("inputDate").value];
+		item.dropdownSelect	= ["Group:", document.getElementById("dropdownSelect").value];
+		item.inputName		= ["Name:", document.getElementById("inputName").value];
+		item.inputAddress	= ["Address:", document.getElementById("inputAddress").value];
+		item.inputAddress2	= ["Address2:", document.getElementById("inputAddress2").value];
+		item.inputCity		= ["City:", document.getElementById("inputCity").value];
+		item.inputState		= ["State:", document.getElementById("inputState").value];
+		item.inputZip		= ["Zip:", document.getElementById("inputZip").value];
+		item.inputRating	= ["Rating:", document.getElementById("inputRating").value];
+		item.inputDate		= ["Date:", document.getElementById("inputDate").value];
 		//item.inputHidden	= ["Hidden:", $("inputHidden").value];
-		item.inputArea		= ["Area:", $("inputArea").value];
+		item.inputArea		= ["Area:", document.getElementById("inputArea").value];
 		item.inputCheck		= ["Add to Favorites:", favoriteValue];
 		
-		//Save data into local storage. Use stringify to convert object into a string
+		//Save data into local storage. Use stringify to convert object into a string		
 		localStorage.setItem(id, JSON.stringify(item));
+		//localStorage.setItem("test","hello");
+		alert(localStorage.length);
 		alert("Pebble Saved!");
 	}
 	
@@ -93,7 +95,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList = document.createElement("ul");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$("items").style.display = "block";													
+		document.getElementById("items").style.display = "block";													
 
 		for (var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
