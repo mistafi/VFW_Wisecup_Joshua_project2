@@ -80,8 +80,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Save data into local storage. Use stringify to convert object into a string		
 		localStorage.setItem(id, JSON.stringify(item));
 		//localStorage.setItem("test","hello");
-		alert(localStorage.length);
-		alert("Pebble Saved!");
+		//alert(localStorage.length);
+		alert("Pebble Saved! You have " + localStorage.length + " pebbles saved.");
 	}
 	
 	function getData(){
